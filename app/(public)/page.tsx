@@ -7,6 +7,9 @@ import ExperienceSection from "@/components/public/ExperienceSection";
 import ContactSection from "@/components/public/ContactSection";
 import Footer from "@/components/public/Footer";
 
+// Force dynamic rendering — this page fetches from the database at request time
+export const dynamic = "force-dynamic";
+
 export default function HomePage() {
   return (
     <>

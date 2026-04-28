@@ -3,6 +3,8 @@ import { getSkills } from "@/actions/skills";
 import StatsCard from "@/components/admin/StatsCard";
 import { FiFolderPlus, FiCode } from "react-icons/fi";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboardPage() {
   const [projects, skills] = await Promise.all([getProjects(), getSkills()]);
 

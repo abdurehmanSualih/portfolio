@@ -4,6 +4,8 @@ import { FiChevronLeft } from "react-icons/fi";
 import { getSkillById } from "@/actions/skills";
 import SkillForm from "@/components/admin/SkillForm";
 
+export const dynamic = "force-dynamic";
+
 interface EditSkillPageProps {
   params: { id: string };
 }

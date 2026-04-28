@@ -3,6 +3,8 @@ import { getSkills } from "@/actions/skills";
 import { FiPlus } from "react-icons/fi";
 import SkillsTable from "@/components/admin/SkillsTable";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminSkillsPage() {
   const skills = await getSkills();
 

@@ -3,6 +3,8 @@ import { getProjects } from "@/actions/projects";
 import { FiPlus } from "react-icons/fi";
 import ProjectsTable from "@/components/admin/ProjectsTable";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminProjectsPage() {
   const projects = await getProjects();
 
