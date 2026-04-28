@@ -10,6 +10,7 @@ import Select from "react-select";
 import { CldUploadWidget } from "next-cloudinary";
 import { ProjectType } from "@prisma/client";
 import { createProject, updateProject } from "@/actions/projects";
+import { getCloudinarySignature } from "@/lib/cloudinary";
 import { FiUploadCloud, FiX } from "react-icons/fi";
 
 const ProjectSchema = z.object({
@@ -260,7 +261,8 @@ export default function ProjectForm({
           </div>
         ) : (
           <CldUploadWidget
-            uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET ?? "ml_default"}
+            signatureEndpoint="/api/sign-cloudinary-params"
+            generateSignature={getCloudinarySignature}
             onSuccess={(result) => {
               if (
                 result.info &&
