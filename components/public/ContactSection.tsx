@@ -19,19 +19,19 @@ const socialLinks = [
   {
     icon: FaGithub,
     label: "GitHub",
-    href: "https://github.com/yourusername",
+    href: "https://github.com/abdurehman-sualih",
     color: "hover:text-white",
   },
   {
     icon: FaLinkedin,
     label: "LinkedIn",
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://linkedin.com/in/abdurehman-sualih",
     color: "hover:text-sky-400",
   },
   {
     icon: FaTelegram,
     label: "Telegram",
-    href: "https://t.me/yourusername",
+    href: "https://t.me/abdurehman_sualih",
     color: "hover:text-sky-400",
   },
 ];

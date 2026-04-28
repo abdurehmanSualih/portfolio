@@ -1,12 +1,10 @@
-import ThemeToggle from "@/components/ui/ThemeToggle";
+import Navbar from "@/components/public/Navbar";
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <header className="fixed top-0 right-0 z-50 p-4">
-        <ThemeToggle />
-      </header>
-      <main>{children}</main>
+      <Navbar />
+      <main className="pt-20">{children}</main>
     </>
   );
 }

@@ -2,22 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Light mode (default) ─────────────────────────────────── */
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 15, 15, 26;
-  --background-end-rgb: 26, 26, 46;
+  --bg:         #f8f9ff;
+  --surface:    #eef0f8;
+  --card:       #ffffff;
+  --border:     #d1d5e8;
+  --fg:         #0f0f1a;
+  --fg-muted:   #4b5563;
+}
+
+/* ── Dark mode ────────────────────────────────────────────── */
+.dark {
+  --bg:         #0f0f1a;
+  --surface:    #1a1a2e;
+  --card:       #16213e;
+  --border:     #2a2a4a;
+  --fg:         #f1f5f9;
+  --fg-muted:   #9ca3af;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom,
-    rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb))
-  );
+  background-color: var(--bg);
+  color: var(--fg);
   min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 html {
   scroll-behavior: smooth;
 }
+
+/* In light mode, "text-white" headings should use the dark foreground instead */
+:root:not(.dark) .text-white {
+  color: var(--fg) !important;
+}
+
+/* Borders and cards adapt via CSS variables — no extra overrides needed */

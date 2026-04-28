@@ -41,7 +41,7 @@ export default function HeroSection() {
         >
           Hi, I&apos;m{" "}
           <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-            Your Name
+            Abdurehman Sualih
           </span>
         </motion.h1>
 

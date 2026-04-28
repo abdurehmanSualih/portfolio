@@ -12,7 +12,7 @@ const config: Config = {
       colors: {
         primary: {
           DEFAULT: "#6366f1",
-          50: "#eef2ff",
+          50:  "#eef2ff",
           100: "#e0e7ff",
           200: "#c7d2fe",
           300: "#a5b4fc",
@@ -29,12 +29,18 @@ const config: Config = {
           500: "#06b6d4",
           600: "#0891b2",
         },
+        /* Map dark-* tokens to CSS variables so they flip with the theme */
         dark: {
-          bg: "#0f0f1a",
-          surface: "#1a1a2e",
-          card: "#16213e",
-          border: "#2a2a4a",
+          bg:      "var(--bg)",
+          surface: "var(--surface)",
+          card:    "var(--card)",
+          border:  "var(--border)",
         },
+      },
+      textColor: {
+        /* Override gray shades used for body copy so they flip too */
+        "gray-400": "var(--fg-muted)",
+        "gray-500": "var(--fg-muted)",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
@@ -42,15 +48,15 @@ const config: Config = {
       },
       animation: {
         "gradient-x": "gradient-x 8s ease infinite",
-        "fade-in": "fade-in 0.5s ease-out",
+        "fade-in":    "fade-in 0.5s ease-out",
       },
       keyframes: {
         "gradient-x": {
           "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
+          "50%":      { backgroundPosition: "100% 50%" },
         },
         "fade-in": {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "0%":   { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
