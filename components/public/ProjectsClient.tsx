@@ -4,9 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ProjectType } from "@prisma/client";
 import type { ProjectWithSkills } from "@/actions/projects";
+import { filterProjects, type Filter } from "@/lib/filterProjects";
 import ProjectCard from "./ProjectCard";
-
-type Filter = "ALL" | ProjectType;
 
 const filters: { label: string; value: Filter }[] = [
   { label: "All", value: "ALL" },
@@ -32,10 +31,7 @@ interface ProjectsClientProps {
 export default function ProjectsClient({ projects }: ProjectsClientProps) {
   const [activeFilter, setActiveFilter] = useState<Filter>("ALL");
 
-  const filtered =
-    activeFilter === "ALL"
-      ? projects
-      : projects.filter((p) => p.projectType === activeFilter);
+  const filtered = filterProjects(projects, activeFilter);
 
   return (
     <>

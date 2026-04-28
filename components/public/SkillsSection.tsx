@@ -1,6 +1,7 @@
 import { getSkills } from "@/actions/skills";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { SkillCategory } from "@prisma/client";
+import { groupSkills, CATEGORY_ORDER } from "@/lib/groupSkills";
 import SkillBadge from "./SkillBadge";
 
 const categoryLabels: Record<SkillCategory, string> = {
@@ -10,19 +11,11 @@ const categoryLabels: Record<SkillCategory, string> = {
   DATABASE: "Database",
 };
 
-const categoryOrder: SkillCategory[] = ["FRONTEND", "BACKEND", "MOBILE", "DATABASE"];
-
 export default async function SkillsSection() {
   const skills = await getSkills();
 
   // Group skills by category
-  const grouped = categoryOrder.reduce<Record<SkillCategory, typeof skills>>(
-    (acc, cat) => {
-      acc[cat] = skills.filter((s) => s.category === cat);
-      return acc;
-    },
-    {} as Record<SkillCategory, typeof skills>
-  );
+  const grouped = groupSkills(skills);
 
   return (
     <section id="skills" className="bg-dark-bg py-24">
@@ -36,7 +29,7 @@ export default async function SkillsSection() {
           </h2>
 
           <div className="grid gap-8 sm:grid-cols-2">
-            {categoryOrder.map((cat) => {
+            {CATEGORY_ORDER.map((cat) => {
               const items = grouped[cat];
               if (items.length === 0) return null;
               return (
